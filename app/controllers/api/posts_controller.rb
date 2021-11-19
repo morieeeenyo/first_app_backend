@@ -9,7 +9,7 @@ class Api::PostsController < ApplicationController
     if post.save
       render json: { data: post }
     else
-      render json: { errors: post.errors.full_messages }
+      render status: 422, json: { errors: post.errors.full_messages }
     end
   end
 
